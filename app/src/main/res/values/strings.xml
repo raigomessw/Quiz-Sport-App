@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Quiz Sport App</string>
+    <string name="Welcome">Welcome</string>
+    <string name="Please_enter_your_name">Please enter your name!</string>
+    <string name="Hint_name">Name</string>
+    <string name="Start">Start</string>
+    <string name="username">Username</string>
+    <string name="heyyyy_congratulations">Heyyyy, Congratulations!!!</string>
+    <string name="your_score_is_4_out_of_5">Your Score is 4 out of 5</string>
+    <string name="image">Image</string>
+    <string name="result">Result</string>
+    <string name="finish">!!FINISH!!</string>
+    <string name="_0_5">0/5</string>
+    <string name="what_contry_does_this_sport_belong_to">What contry does this sport belong to?</string>
+</resources>
