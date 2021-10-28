@@ -1,5 +1,10 @@
 package com.example.quiz_sport_app
 
+import androidx.room.Room
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
 object Constants { // Skapa en constante till ala frågor!
 
 //Variabel till final program
@@ -7,8 +12,10 @@ object Constants { // Skapa en constante till ala frågor!
     const val TOTAL_QUESTIONS: String= "total_question"
     const val CORRECT_ANSWERS: String= "correct_answers"
 
+
     fun getQuestions(): MutableList<Question> { //Cria uma lista de perguntas
         val questionsList = mutableListOf<Question>()
+
 
         val ques1 = Question(1,
             "What country does Archery belong to?",
@@ -61,6 +68,7 @@ object Constants { // Skapa en constante till ala frågor!
         questionsList.add(ques5)
 
         return questionsList
+
 
     }
 
