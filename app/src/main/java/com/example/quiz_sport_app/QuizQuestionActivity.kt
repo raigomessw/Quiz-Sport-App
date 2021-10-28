@@ -9,6 +9,9 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.room.Room
+import com.example.quiz_sport_app.Constants.getQuestions
+import kotlinx.coroutines.*
 
 class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener { //onCli till funkar this
 
@@ -18,9 +21,14 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener { //onCli
     private var mCorrectAnswers :Int= 0
     private var mUserName: String? = null
 
+    private lateinit var db: AppDataBase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_question)
+
+        db= Room.databaseBuilder(applicationContext, AppDataBase::class.java, "question-list")
+            .fallbackToDestructiveMigration().build()
 
         mUserName= intent.getStringExtra(Constants.USER_NAME)//Activ det activit USER NAME
 
@@ -32,8 +40,17 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener { //onCli
 
         mQuestionsList = Constants.getQuestions()
 
-        setQuestion()
+        //saveQuestion(getQuestions())
 
+        setQuestion()
+        val list= loadAllQuestions()
+
+        GlobalScope.launch {
+            val questionList= list.onAwait
+            Log.d("!!!", "onCreate: $questionList")
+
+
+        }
         tv_option_One.setOnClickListener(this)
         tv_option_Two.setOnClickListener(this)
         tv_option_Three.setOnClickListener(this)
@@ -41,7 +58,19 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener { //onCli
         btn_submit.setOnClickListener(this)
 
 
+
+
     }
+    fun saveQuestion(question: MutableList<Question>){
+        GlobalScope.launch (Dispatchers.IO){
+           db.questionDao().insert(question)
+        }
+    }
+    fun loadAllQuestions() : Deferred<List<Question>> =
+        GlobalScope.async(Dispatchers.IO){
+            db.questionDao().getAll()
+        }
+
 
     private fun setQuestion() {
 

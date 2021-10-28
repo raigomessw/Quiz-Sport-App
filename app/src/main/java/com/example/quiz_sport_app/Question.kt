@@ -1,14 +1,27 @@
 package com.example.quiz_sport_app
 
-data class Question(
-    val id: Int,
-    val question: String,
-    val image: Int,
-    val optionOne: String,
-    val optionTwo: String,
-    val optionThree: String,
-    val optionFour: String,
-    val correctAnswer: Int
-) { //Sera apena uma classe paa guardar informacoes
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-}
+
+@Entity(tableName = "question_table")
+data class Question(
+
+    @PrimaryKey(autoGenerate = true) val id: Int,
+    @ColumnInfo(name = "question") val question: String,
+    @ColumnInfo(name = "image") val image: Int,
+    @ColumnInfo(name = "optionOne") val optionOne: String,
+    @ColumnInfo(name = "optionTwo") val optionTwo: String,
+    @ColumnInfo(name = "optionThree") val optionThree: String,
+    @ColumnInfo(name = "optionFour") val optionFour: String,
+    @ColumnInfo(name = "correctAnswer") val correctAnswer: Int,
+
+)
+
+
+
+
+
+
+

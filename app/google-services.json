@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "412971875880",
+    "project_id": "quiz-sport-app-3c2dd",
+    "storage_bucket": "quiz-sport-app-3c2dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412971875880:android:8e6cbb85ac518f67317f1d",
+        "android_client_info": {
+          "package_name": "com.example.quiz_sport_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412971875880-hkvs0la7ppfou8lbai9lakjq1c7i46j9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8MgNxog8hwID-6OiFhMpDPhx4cWHHfHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "412971875880-hkvs0la7ppfou8lbai9lakjq1c7i46j9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
